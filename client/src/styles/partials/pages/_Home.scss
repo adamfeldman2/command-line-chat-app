@@ -1,0 +1,45 @@
+.wrapper-page-home {
+  padding-top: 20px;
+  padding-bottom: 40px;
+
+  h1 {
+    text-align: center;
+  }
+
+  .wrapper-content {
+    .wrapper-chat {
+      .messages-output {
+        ul {
+          li {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+          }
+        }
+      }
+
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        input[type='text'] {
+          outline: 0;
+          border: 0;
+          margin-top: 30px;
+          color: $green;
+          background-color: transparent;
+          font-family: $font;
+          font-size: 1.2em;
+
+          &::placeholder {
+            color: $green;
+          }
+        }
+
+        input[type='submit'] {
+          display: none;
+        }
+      }
+    }
+  }
+}
