@@ -19,22 +19,8 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-// socket.io stuff
-io.on('connection', (socket) => {
-  console.log('User connected');
-
-  socket.on('messageFromClient', (message) => {
-    console.log('Incoming message from client: ', message);
-
-    io.emit('messageFromServer', message);
-    console.log('Message sent back to client: ', message);
-  });
-
-  // Disconnect //
-  socket.on('disconnect', () => {
-    console.log('User disconnected');
-  });
-});
+// require socket.io file
+require('./io/io')(io);
 
 server.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
