@@ -201,8 +201,10 @@ body {
   margin: 0 auto; }
 
 .wrapper-component-chat {
-  padding-top: 20px;
-  padding-bottom: 40px; }
+  padding-top: 40px;
+  padding-bottom: 40px;
+  position: relative;
+  margin-top: 20px; }
   .wrapper-component-chat h1 {
     text-align: center; }
   .wrapper-component-chat .wrapper-chat .messages-output ul li {
@@ -224,9 +226,6 @@ body {
         color: #00ff00; }
     .wrapper-component-chat .wrapper-chat form input[type='submit'] {
       display: none; }
-
-.wrapper-component-footer p {
-  text-align: center; }
 
 .wrapper-component-header p {
   text-align: center; }
@@ -283,7 +282,7 @@ body {
       cursor: pointer; }
       .react-responsive-modal-modal form input[type='submit']:hover {
         background-color: #00ff00;
-        color: #272727; }
+        color: #000; }
 
 .react-responsive-modal-close-icon {
   position: absolute;
@@ -304,6 +303,45 @@ body {
 .react-responsive-modal-transition-exit-active {
   opacity: 0.01;
   transition: opacity 500ms cubic-bezier(0.23, 1, 0.32, 1); }
+
+.wrapper-component-users {
+  position: absolute;
+  top: 0;
+  right: 2%;
+  background-color: #000;
+  z-index: 1;
+  width: 115px;
+  box-sizing: border-box; }
+  .wrapper-component-users.active {
+    border-right: 1px solid #00ff00;
+    border-bottom: 1px solid #00ff00;
+    border-left: 1px solid #00ff00;
+    height: 93vh; }
+    .wrapper-component-users.active button {
+      border-right: 0;
+      border-left: 0; }
+  .wrapper-component-users button {
+    width: 100%;
+    border: 1px solid #00ff00;
+    background-color: transparent;
+    outline: 0;
+    color: #00ff00;
+    font-family: "VT323", monospace;
+    font-size: 1.1em;
+    padding: 5px 0;
+    cursor: pointer; }
+    .wrapper-component-users button:hover {
+      background-color: #00ff00;
+      color: #000; }
+  .wrapper-component-users ul {
+    padding-left: 10px; }
+    .wrapper-component-users ul li {
+      margin-top: 9px;
+      font-size: 1.1em;
+      width: 91px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
 
 .wrapper-page-four-oh-four h1 {
   text-align: center; }

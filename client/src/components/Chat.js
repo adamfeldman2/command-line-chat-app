@@ -1,7 +1,8 @@
 import React from 'react';
+import Users from './Users';
 import { connect } from 'react-redux';
 import io from 'socket.io-client';
-const socket = io(`http://${window.location.hostname}:5000`);
+const socket = io(`https://${document.location.hostname}:${document.location.port}`);
 
 class Chat extends React.Component {
   constructor(props) {
@@ -74,6 +75,7 @@ class Chat extends React.Component {
 
     return (
       <div className="wrapper-component-chat wrapper">
+        <Users />
         <div className="wrapper-chat">
           <div className="messages-output">
             <ul>

@@ -1,28 +1,32 @@
 module.exports = (io) => {
-  const connections = [];
   const users = [];
 
+  // on connection
   io.on('connection', (socket) => {
-    connections.push(socket);
-    console.log('connections: ', connections.length);
-
+    // incoming username from client
     socket.on('usernameFromClient', (username) => {
+      // set username on user's socket
       socket.username = username;
+      // add username to list of usernames
       users.push(username);
-      console.log('Users: ', users);
+      // send array of users back to all clients
+      io.emit('usersFromServer', users);
     });
 
+    // incoming message from client
     socket.on('messageFromClient', (messageObj) => {
+      // broadcast message to all clients
       io.emit('messageFromServer', messageObj);
     });
 
-    // Disconnect //
+    // on disconnect //
     socket.on('disconnect', () => {
-      connections.splice(connections.indexOf(socket), 1);
-      console.log('connections: ', connections.length);
-
-      users.splice(users.indexOf(socket.username), 1);
-      console.log('Users: ', users);
+      if (socket.username) {
+        // remove username from users array
+        users.splice(users.indexOf(socket.username), 1);
+        // broadcast updated users array to all clients
+        io.emit('usersFromServer', users);
+      }
     });
   });
 };

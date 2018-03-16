@@ -1,0 +1,51 @@
+.wrapper-component-users {
+  position: absolute;
+  top: 0;
+  right: 2%;
+  background-color: $black;
+  z-index: 1;
+  width: 115px;
+  box-sizing: border-box;
+
+  &.active {
+    border-right: 1px solid $green;
+    border-bottom: 1px solid $green;
+    border-left: 1px solid $green;
+    height: 93vh;
+
+    button {
+      border-right: 0;
+      border-left: 0;
+    }
+  }
+
+  button {
+    width: 100%;
+    border: 1px solid $green;
+    background-color: transparent;
+    outline: 0;
+    color: $green;
+    font-family: $font;
+    font-size: 1.1em;
+    padding: 5px 0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $green;
+      color: $black;
+    }
+  }
+
+  ul {
+    padding-left: 10px;
+
+    li {
+      margin-top: 9px;
+      font-size: 1.1em;
+      width: 91px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
